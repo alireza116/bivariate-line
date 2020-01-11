@@ -12,6 +12,7 @@
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="" />
+    <script src="js/jstat.js"></script>
   </head>
   <body>
     <!--[if lt IE 7]>
@@ -21,6 +22,20 @@
       </p>
     <![endif]-->
 
-    <script src="" async defer></script>
+    <script src="js/bootstrap_stat.js"></script>
+    <script>
+      var bs = new bootstrap_stat();
+      var data = [];
+      for (var i = 0; i < 100; i++) {
+        var d = window.jStat.normal.sample(50, 1);
+        data.push([
+          window.jStat.normal.sample(50, 1),
+          window.jStat.normal.sample(50, 1)
+        ]);
+      }
+      console.log(data);
+      var bootstrap_pearson = bs.boot_ci_pearsonr(data);
+      console.log(bootstrap_pearson);
+    </script>
   </body>
 </html>
